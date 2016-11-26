@@ -98,4 +98,19 @@ map' f = foldr (\x acc -> f x : acc) []
 -- foldl1 and foldr1 use the first and last value respectivly as init value for 
 -- the accumulator
 head' :: [a] -> a
-head' = foldr1 (\x _ -> x)   
+head' = foldr1 (\x _ -> x)  
+
+-- Scan is like fold except it returns all the acc states
+-- scanl1 (+) [1,2,3,4,5]
+-- scanl (flip (:)) [] [1,3,4]
+
+-- Function application with $
+-- ===========================
+
+-- Allow to remove parenthesis. Used for right application as paramter
+-- sum (filter (>10) (map (*2) [2..10])) is eq to sum $ filter (>10) $ map (*2) [2..10]
+
+-- Function composition
+-- ====================
+
+--  map (\x -> negate (abs x)) [10, -10,3, -1] is eq to map (negate . abs) [10, -10,3, -1]
